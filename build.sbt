@@ -1,7 +1,0 @@
-name := "maxldale_github_page"
-
-version := "0.1"
-
-scalaVersion := "2.13.5"
-
-idePackagePrefix := Some("com.maxl.maxldale")
