@@ -1,0 +1,34 @@
+---
+import ProjectTile from './ProjectTile.astro';
+
+const { projects } = Astro.props;
+
+
+const projectCount = projects.length;
+
+// Utility function: pick best col count ≤ maxCol that evenly divides or minimizes remainder
+function bestColCount(maxCol) {
+  for (let cols = maxCol; cols >= 1; cols--) {
+    if (projectCount % cols === 0) return cols;
+  }
+  return 1;
+}
+
+const smCols = bestColCount(1);  // Mobile
+const mdCols = bestColCount(2);  // Tablet
+const lgCols = bestColCount(3);  // Small desktop
+const xlCols = bestColCount(4);  // Large screen
+
+console.log(smCols, mdCols, lgCols, xlCols);
+const gridClass = `grid gap-6 sm:grid-cols-${smCols} md:grid-cols-${mdCols} lg:grid-cols-${lgCols} xl:grid-cols-${xlCols}`;
+console.log(gridClass)
+---
+
+<section id="projects" class="py-20 px-6 bg-zinc-900 text-white min-h-[50vh]">
+    <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-6">Projects</h2>
+    
+    <div class={gridClass}>
+        {projects.map((project) => <ProjectTile {...project}/>)}
+    </div>
+</section>

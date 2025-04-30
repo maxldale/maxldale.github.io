@@ -1,0 +1,147 @@
+---
+import './src/styles/global.css';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import ProjectModal from '../components/ProjectModal.astro';
+import Contact from '../components/Contact.astro';
+
+const heroConfig = {
+	imageSource:"/avatar.png",
+	imageAltText:"Illustration of Maxl",
+	primaryIntroduction:"Hi, I’m Maxl (Mock-syl).",
+	secondaryIntroduction:"I explore an ever-growing constellation of questions — not just for answers, but for the unexpected journeys they bring along the way.",
+	hook:"Curiosity leads, wonder draws.",
+};
+const aboutParagraphs = {
+	paragraphs:[
+		"I’m originally from Monterey, California, but grew up across Pensacola (FL), Misawa (Japan), and Pennsylvania before eventually settling in Columbia, Maryland — which became home for the next 20 years.",
+        "I studied Computer Science (B.Sc.) and German (B.A.) at the University of Maryland, College Park, and completed an exchange semester at the Munich University of Applied Sciences (MUAS), taking five computer science courses — three of them entirely in German.",
+        "My professional path has ranged from running a landscaping business for over a decade, to internships in big data analytics and dashboard design, to working in Germany as a software developer in the automotive space. I contributed to the prototyping and certification of the first CARB-compliant software for a new California emissions regulation.",
+        "I also worked as a university transit driver and dispatcher, earned my CDL, and contributed to research in autonomous systems through UMD’s FIRE program — focusing on SLAM-based navigation in simulated environments.",
+	],
+};
+
+const personalPassion = {
+	label:"Personal Passion",
+	icon:null,
+	color: "bg-pink-400 text-white",
+};
+const javaBadge = {
+	label:"Java",
+	icon:"java-icon.svg",
+	color: "bg-white text-black",
+};
+const kotlinBadge = {
+	label:"Kotlin",
+	icon:"kotlin-logo.png",
+	color:"bg-white text-black",
+	horizontalPadding:"mx-2",
+};
+const scalaBadge = {
+	label:"Scala",
+	icon:"scala-logo.png",
+	color: "bg-white text-black",
+};
+const reactBadge = {
+	label:"React",
+	icon:"react-logo.svg",
+	color: "bg-white text-black",
+};
+const expoBadge = {
+	label:"Expo",
+	icon:"expo-logo.svg",
+	color: "bg-white text-black",
+};
+
+
+const projectData = {
+	projects: [
+		{
+			id: 0,
+			title:"Sound/Light Designer/Technician/Operator",
+			synopsis: "Academic, community & professional productions",
+			description:"Passion-driven work in lighting and sound design for performances (high school and university) - requiring planning, a large bandwidth for processing information in real-time, and adaptability to all situations and suprises.",
+			badges:[personalPassion],
+		},{
+			id: 1,
+			title:"Soccer Referee",
+			synopsis: "Recreational, Select, & Travel Teams (U8-U16)",
+			description:"Passion-driven officiating of youth soccer matches for several age groups and skill levels - demanding attnetion to detail, precision, and effective communication.",
+			badges:[personalPassion],
+		},
+		{
+			id:2,
+			title:"DotTap",
+			synopsis: "Android high-score game",
+			description:"My first Android app — a tap-based high score game built in Java/Kotlin. Users earn points by quickly tapping shrinking dots. Retired, but fully published to Google Play at the time.",
+			badges: [javaBadge, kotlinBadge],
+		},
+		{
+			id:3,
+			title:"NewsVis",
+			synopsis:"Aggregator of news articles from major news organizations.",
+			description:"A Java desktop app built at a hackathon to scrape and analyze news articles using TF-IDF. I focused on data cleaning and relevance scoring. We placed 4th overall.",
+			badges: [javaBadge],
+		},
+		{
+			id:4,
+			title:"CORe",
+			synopsis:"Compute On Request engine",
+			description:"A Scala framework for real-time UI updates and simulation management using the Akka Actor System. It's a prototype addressing visual lag and CPU underutilization.",
+			badges: [scalaBadge],
+		},
+		{
+			id:5,
+			title:"Hindsight is 2020",
+			synopsis:"Cross-platform golf-style maze game",
+			description:"A maze-based scoring game built in TypeScript with React/Expo. Users trace a hidden path with limited information. Still under development.",
+			badges: [reactBadge, expoBadge],
+		},
+	]
+};
+
+const footerData = {
+	location:"Baden-Wuerttemberg, Germany",
+	publicEmail:"maxl.dale.11+maxldale.com@gmail.com",
+	linkedInLink:"https://www.linkedin.com/in/maximiliandale/",
+	gitHubLink:"https://github.com/maxldale",
+	instagramLink:"https://www.instagram.com/maxl.dale/",
+}
+---
+
+<!DOCTYPE html>
+<script src="/js/modal.js" defer></script>
+<script src="/js/currentYear.js" is:inline></script>
+<script src="/js/headerNavHighlighting.js" is:inline></script>
+<html lang="en">
+	<head>
+    	<meta charset="UTF-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    	<title>Home | Maxl Dale</title>
+  	</head>
+  	<body class="bg-zinc-900 text-white">
+		<header class="w-full py-4 px-6 text-sm sticky top-0 bg-zinc-900 z-50 shadow-md">
+  			<nav class="flex justify-between items-center max-w-7xl mx-auto">
+    			<div class="text-xl font-bold">maxldale</div>
+    			<div class="space-x-4">
+    				<a href="#about" data-nav-target="about" class="hover:underline">About</a>
+    				<a href="#projects" data-nav-target="projects" class="hover:underline">Projects</a>
+    				<a href="#contact" data-nav-target="contact" class="hover:underline">Contact</a>
+    			</div>
+  			</nav>
+		</header>
+    	<Hero {...heroConfig}/>
+
+		<About {...aboutParagraphs} />
+
+		{projectData.projects.map((project) => <ProjectModal id={project.id} title={project.title} description={project.description} />)}
+
+		<Projects {...projectData} />
+
+		<Contact {...footerData} />
+  	</body>
+  	<footer class="text-center text-slate-500 text-sm py-6 bg-zinc-900">
+		© <span id="current-year"></span> Maxl Dale · Built with <a href="https://astro.build" class="underline hover:text-white">Astro</a> and <a href="https://tailwindcss.com" class="underline hover:text-white">Tailwind CSS</a>
+	</footer>
+</html>

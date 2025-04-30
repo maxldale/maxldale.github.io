@@ -1,0 +1,14 @@
+---
+const { label, icon = null, color = "bg-zinc-700 text-white", horizontalPadding = "rounded-full mx-2" } = Astro.props;
+---
+
+<span class={`inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full border border-zinc-700 ${color}`}>
+  {icon && (
+    <img
+      src={icon}
+      alt={`${label} icon`}
+      class={`w-8 h-8 ${horizontalPadding}`}
+    />
+  )}
+  {!icon && (label)}
+</span>

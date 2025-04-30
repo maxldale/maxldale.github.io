@@ -1,0 +1,29 @@
+---
+const { location, publicEmail, linkedInLink, gitHubLink, instagramLink } = Astro.props;
+---
+
+<section id="contact" class="py-20 px-6 bg-zinc-800 text-white min-h-[50vh]">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-6">Contact</h2>
+        <p class="text-slate-300 mb-6">
+          I'm currently based in <strong>{location}</strong> and open to collaboration or work opportunities. I'm especially interested in meaningful, user-centered projects and interdisciplinary efforts.
+        </p>
+        <ul class="mb-6 space-y-2 text-slate-300">
+          <li>
+            📧 <a href=`mailto:${publicEmail}` class="underline hover:text-white">Email</a>
+          </li>
+          <li>
+            💼 <a href={linkedInLink} class="underline hover:text-white">LinkedIn</a>
+          </li>
+          <li>
+            🧪 <a href={gitHubLink} class="underline hover:text-white">GitHub</a>
+          </li>
+          <li>
+            📸 <a href={instagramLink} class="underline hover:text-white">Instagram</a>
+          </li>
+        </ul>
+        <p class="text-sm text-slate-500">
+          ⚠️ Please: no marketing emails or mass solicitations. I value mutual respect and relevance in outreach.
+        </p>
+      </div>
+</section>
