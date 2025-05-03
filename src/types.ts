@@ -4,27 +4,37 @@ export interface IconProps {
     iconCustomClasses: string,
 };
 
-export function hasIcon(iconProps: IconProps|undefined): iconProps is IconProps {
-    return iconProps !== undefined;
-}
-
 export interface BadgeProps {
     label: string,
     iconProps: IconProps | undefined,
     customClasses: string,
 };
 
-export interface ProjectTileProps<IdType> {
-    id: IdType,
+export interface ProjectTileProps {
+    id: number,
     title: string,
     synopsis: string,
     badgeProps: Array<BadgeProps>,
 }
 
-export interface ProjectInfo<IdType> extends ProjectTileProps<IdType> {
+export interface ProjectInfo extends ProjectTileProps {
     description: string,
 }
 
-export interface ProjectProps<IdType> {
-    projects: Array<ProjectInfo<IdType>>,
+export type RawProjectInfo = Omit<ProjectInfo, 'id'>;
+
+export interface ProjectProps {
+    projects: Array<ProjectInfo>,
+}
+
+export interface HeroProps {
+    imageSource: string,
+    imageAltText: string,
+    primaryIntroduction: string,
+    secondaryIntroduction: string,
+    hook: string,
+}
+
+export interface AboutProps {
+    paragraphs: Array<String>,
 }
