@@ -1,14 +1,24 @@
 ---
-const { label, icon = null, color = "bg-zinc-700 text-white", horizontalPadding = "rounded-full mx-2" } = Astro.props;
+import type { BadgeProps } from "../types";
+import { hasIcon } from "../types";
+
+const {
+  label,
+  iconProps = undefined,
+  customClasses = "bg-zinc-700 text-white",
+} = Astro.props as BadgeProps;
 ---
 
-<span class={`inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full border border-zinc-700 ${color}`}>
-  {icon && (
+<span
+  class={`inline-flex items-center justify-center gap-1 text-xs h-10 px-3 rounded-full border border-zinc-700 ${customClasses}`}
+>
+  {hasIcon(iconProps) ? (
     <img
-      src={icon}
+      src={iconProps.icon}
       alt={`${label} icon`}
-      class={`w-8 h-8 ${horizontalPadding}`}
+      class={`w-8 h-8 ${iconProps.iconCustomClasses}`}
     />
+  ) : (
+    <span class="leading-none">{label}</span>
   )}
-  {!icon && (label)}
 </span>

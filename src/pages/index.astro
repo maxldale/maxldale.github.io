@@ -5,6 +5,7 @@ import About from '../components/About.astro';
 import Projects from '../components/Projects.astro';
 import ProjectModal from '../components/ProjectModal.astro';
 import Contact from '../components/Contact.astro';
+import type { BadgeProps, ProjectProps } from '../types';
 
 const heroConfig = {
 	imageSource:"/avatar.png",
@@ -22,81 +23,99 @@ const aboutParagraphs = {
 	],
 };
 
-const personalPassion = {
+const defaultIconCustomClasses = "rounded-full mx-2";
+const defaultLogoCustomClasses = "bg-zinc-100 text-black";
+
+const personalPassion: BadgeProps = {
 	label:"Personal Passion",
-	icon:{},
-	color: "bg-pink-400 text-white",
+	iconProps: undefined,
+	customClasses: "bg-pink-400 text-white",
 };
-const javaBadge = {
+const javaBadge: BadgeProps = {
 	label:"Java",
-	icon:"java-icon.svg",
-	color: "bg-white text-black",
+	iconProps: {
+		icon: "java-icon.svg",
+		iconCustomClasses: defaultIconCustomClasses,
+	},
+	customClasses: defaultLogoCustomClasses,
 };
-const kotlinBadge = {
+const kotlinBadge: BadgeProps = {
 	label:"Kotlin",
-	icon:"kotlin-logo.png",
-	color:"bg-white text-black",
-	horizontalPadding:"mx-2",
+	iconProps: {
+		icon: "kotlin-logo.png",
+		iconCustomClasses: "mx-2",
+	},
+	customClasses: defaultLogoCustomClasses,
 };
-const scalaBadge = {
+
+const scalaBadge: BadgeProps = {
 	label:"Scala",
-	icon:"scala-logo.png",
-	color: "bg-white text-black",
+	iconProps: {
+		icon:"scala-logo.png",
+		iconCustomClasses: "mx-2",
+	},
+	customClasses: defaultLogoCustomClasses,
 };
-const reactBadge = {
+const reactBadge: BadgeProps = {
 	label:"React",
-	icon:"react-logo.svg",
-	color: "bg-white text-black",
+	iconProps: {
+		icon:"react-logo.svg",
+		iconCustomClasses: defaultIconCustomClasses,
+	},
+	customClasses: defaultLogoCustomClasses,
 };
-const expoBadge = {
+const expoBadge: BadgeProps = {
 	label:"Expo",
-	icon:"expo-logo.svg",
-	color: "bg-white text-black",
+	iconProps: {
+		icon:"expo-logo.svg",
+		iconCustomClasses: "mx-2",
+	},
+	customClasses: defaultLogoCustomClasses,
 };
 
 
-const projectData = {
+const projectData: ProjectProps<number> = {
 	projects: [
 		{
 			id: 0,
 			title:"Sound/Light Designer/Technician/Operator",
 			synopsis: "Academic, community & professional productions",
 			description:"Passion-driven work in lighting and sound design for performances (high school and university) - requiring planning, a large bandwidth for processing information in real-time, and adaptability to all situations and suprises.",
-			badges:[personalPassion],
+			badgeProps:[personalPassion],
 		},{
 			id: 1,
 			title:"Soccer Referee",
 			synopsis: "Recreational, Select, & Travel Teams (U8-U16)",
 			description:"Passion-driven officiating of youth soccer matches for several age groups and skill levels - demanding attnetion to detail, precision, and effective communication.",
-			badges:[personalPassion],
+			badgeProps:[personalPassion],
 		},
 		{
 			id:2,
 			title:"DotTap",
 			synopsis: "Android high-score game",
 			description:"My first Android app — a tap-based high score game built in Java/Kotlin. Users earn points by quickly tapping shrinking dots. Retired, but fully published to Google Play at the time.",
-			badges: [javaBadge, kotlinBadge],
+			badgeProps: [javaBadge, kotlinBadge],
 		},
 		{
 			id:3,
 			title:"NewsVis",
 			synopsis:"Aggregator of news articles from major news organizations.",
 			description:"A Java desktop app built at a hackathon to scrape and analyze news articles using TF-IDF. I focused on data cleaning and relevance scoring. We placed 4th overall.",
-			badges: [javaBadge],
+			badgeProps: [javaBadge],
 		},
 		{
 			id:4,
 			title:"CORe",
 			synopsis:"Compute On Request engine",
 			description:"A Scala framework for real-time UI updates and simulation management using the Akka Actor System. It's a prototype addressing visual lag and CPU underutilization.",
-			badges: [scalaBadge],
+			badgeProps: [scalaBadge],
 		},
 		{
 			id:5,
 			title:"Hindsight is 2020",
 			synopsis:"Cross-platform golf-style maze game",
 			description:"A maze-based scoring game built in TypeScript with React/Expo. Users trace a hidden path with limited information. Still under development.",
-			badges: [reactBadge, expoBadge],
+			badgeProps: [reactBadge, expoBadge],
 		},
 	]
 };
