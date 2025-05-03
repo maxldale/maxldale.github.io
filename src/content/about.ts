@@ -16,7 +16,7 @@ const academics = singleLine`
 const professionalCareer = singleLine`
     My professional path has ranged from running a landscaping business for over a decade,
     to internships in big data analytics and dashboard design, to working in Germany as a software developer
-    in the automotive space. I contributed to the prototyping and certification of the first CARB-compliant software
+    in the automotive space. I contributed to the prototyping and certification of the first CARB (California Air Resources Board) -compliant software
     for a new California emissions regulation.
 `;
 

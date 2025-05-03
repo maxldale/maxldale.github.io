@@ -16,14 +16,14 @@ const expoBadge: BadgeProps = iconBadgeProps("Expo", boxyIconProps("expo-logo.sv
 const soundAndLights: RawProjectInfo = {
     title:"Sound/Light Designer/Technician/Operator",
     synopsis: "Academic, community & professional productions",
-    description:"Passion-driven work in lighting and sound design for performances (high school and university) - requiring planning, a large bandwidth for processing information in real-time, and adaptability to all situations and suprises.",
+    description:"Passion-driven work in lighting and sound design for performances (high school and university) - requiring planning, a large bandwidth for processing information in real-time, and adaptability to all situations and surprises.",
     badgeProps:[personalPassion],
 };
 
 const soccerReferee: RawProjectInfo = {
     title:"Soccer Referee",
     synopsis: "Recreational, Select, & Travel Teams (U8-U16)",
-    description:"Passion-driven officiating of youth soccer matches for several age groups and skill levels - demanding attnetion to detail, precision, and effective communication.",
+    description:"Passion-driven officiating of youth soccer matches for several age groups and skill levels - demanding attention to detail, precision, and effective communication.",
     badgeProps:[personalPassion],
 };
 
