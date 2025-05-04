@@ -1,5 +1,5 @@
 ---
-import type { ProjectTileProps } from '../types';
+import type { ProjectInfo } from '../types';
 import Badge from './Badge.astro';
 
 const {
@@ -7,7 +7,7 @@ const {
   title,
   synopsis,
   badgeProps = []
-} = Astro.props as ProjectTileProps;
+} = Astro.props as ProjectInfo;
 ---
 
 <div

@@ -1,5 +1,7 @@
-import type { BadgeProps, ProjectInfo, ProjectProps, RawProjectInfo } from "../types";
+import type { BadgeProps, ProjectInfo, ProjectProps } from "../types";
 import { boxyIconProps, iconBadgeProps, roundedIconProps } from "../utils";
+
+type RawProjectInfo = Omit<ProjectInfo, 'id'>;
 
 const personalPassion: BadgeProps = {
 	label:"Personal Passion",

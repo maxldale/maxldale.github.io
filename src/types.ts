@@ -22,9 +22,9 @@ export interface ProjectInfo {
 }
 
 
-export type ProjectTileProps = Omit<ProjectInfo, 'description' | 'actionText' | 'actionUrl' >;
+//export type ProjectTileProps = Omit<ProjectInfo, 'description' | 'actionText' | 'actionUrl' >;
 
-export type RawProjectInfo = Omit<ProjectInfo, 'id'>;
+//export type RawProjectInfo = Omit<ProjectInfo, 'id'>;
 
 export interface ProjectProps {
     projects: Array<ProjectInfo>,
@@ -42,4 +42,4 @@ export interface AboutProps {
     paragraphs: Array<String>,
 }
 
-export type ProjectModalProps = Omit<ProjectInfo, 'synopsis' | 'badgeProps'>;
+//export type ProjectModalProps = Omit<ProjectInfo, 'synopsis' | 'badgeProps'>;
