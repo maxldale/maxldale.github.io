@@ -22,7 +22,7 @@ export interface ProjectInfo {
 }
 
 
-export type ProjectTileProps = Omit<ProjectInfo, 'description' | 'actionText' | 'urlTText' >;
+export type ProjectTileProps = Omit<ProjectInfo, 'description' | 'actionText' | 'actionUrl' >;
 
 export type RawProjectInfo = Omit<ProjectInfo, 'id'>;
 
