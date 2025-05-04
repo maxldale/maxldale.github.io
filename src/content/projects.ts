@@ -18,7 +18,7 @@ const expoBadge: BadgeProps = iconBadgeProps("Expo", boxyIconProps("expo-logo.sv
 const soundAndLights: RawProjectInfo = {
     title:"Sound/Light Designer/Technician/Operator",
     synopsis: "Academic, community & professional productions",
-    description:"Passion-driven work in lighting and sound design for performances (high school and university) - requiring planning, a large bandwidth for processing information in real-time, and adaptability to all situations and surprises.",
+    description:"Passion-driven work developing lighting and sound design/operation for performances (high school, community, and university productions) - requiring planning, a large bandwidth for processing information in real-time, and adaptability to all situations and surprises.",
     badgeProps:[personalPassion],
     actionText:undefined,
     actionUrl:undefined,
@@ -45,7 +45,7 @@ const dotTap: RawProjectInfo = {
 const newsVis: RawProjectInfo = {
     title:"NewsVis",
     synopsis:"Aggregator of news articles from major news organizations.",
-    description:"A Java desktop app built at a hackathon to scrape and analyze news articles using TF-IDF. I focused on data cleaning and relevance scoring. We placed 4th overall.",
+    description:"A Java desktop app built at a hackathon to scrape and analyze news articles using TF-IDF (Term Frequency - Inverse Document Frequency). I focused on data cleaning and relevance scoring. We placed 4th overall.",
     badgeProps: [javaBadge],
     actionText:undefined,
     actionUrl:undefined,
