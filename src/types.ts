@@ -10,16 +10,19 @@ export interface BadgeProps {
     customClasses: string,
 };
 
-export interface ProjectTileProps {
+
+export interface ProjectInfo {
     id: number,
     title: string,
     synopsis: string,
     badgeProps: Array<BadgeProps>,
+    description: string,
+    actionText: string|undefined,
+    actionUrl: string|undefined,
 }
 
-export interface ProjectInfo extends ProjectTileProps {
-    description: string,
-}
+
+export type ProjectTileProps = Omit<ProjectInfo, 'description' | 'actionText' | 'urlTText' >;
 
 export type RawProjectInfo = Omit<ProjectInfo, 'id'>;
 
@@ -38,3 +41,5 @@ export interface HeroProps {
 export interface AboutProps {
     paragraphs: Array<String>,
 }
+
+export type ProjectModalProps = Omit<ProjectInfo, 'synopsis' | 'badgeProps'>;
